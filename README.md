@@ -1,6 +1,6 @@
 # Bayesian Qauntile VAR
 ## Installation
-Install the dependencies, then download the source package file or binary package file from Release and install it locally.
+Install the dependencies, then download the source package file or binary package file from Release and install it locally. Source package file needs compilation, but binary package does not. If the technique detail of algorithm is not your interests, binary package is more recommended for users. 
 ```
 # install dependencies
 install.packages(
