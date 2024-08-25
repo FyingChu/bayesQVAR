@@ -1,0 +1,125 @@
+
+@article{kozumi_gibbs_2011,
+	title = {Gibbs {Sampling} {Methods} for {Bayesian} {Quantile} {Regression}},
+	volume = {81},
+	issn = {0094-9655},
+	abstract = {This paper considers quantile regression models using an asymmetric Laplace distribution from a Bayesian point of view. We develop a simple and efficient Gibbs sampling algorithm for fitting the quantile regression model based on a location-scale mixture representation of the asymmetric Laplace distribution. It is shown that the resulting Gibbs sampler can be accomplished by sampling from either normal or generalized inverse Gaussian distribution. We also discuss some possible extensions of our approach, including the incorporation of a scale parameter, the use of double exponential prior, and a Bayesian analysis of Tobit quantile regression. The proposed methods are illustrated by both simulated and real data.},
+	number = {11},
+	urldate = {2022-11-11},
+	journal = {Journal of Statistical Computation and Simulation},
+	author = {Kozumi, Hideo and Kobayashi, Genya},
+	month = nov,
+	year = {2011},
+	note = {223 citations (Crossref) [2022-11-13]},
+	keywords = {Gibbs sampler, Bayesian quantile regression, asymmetric Laplace distribution, double exponential prior, generalized inverse Gaussian distribution, Tobit quantile regression, quantile regression, Bayeisan method},
+	pages = {1565--1578}
+}
+
+@article{petrella_joint_2019,
+	title = {Joint {Estimation} of {Conditional} {Quantiles} in {Multivariate} {Linear} {Regression} {Models} with an {Application} to {Financial} {Distress}},
+	volume = {173},
+	issn = {0047-259X},
+	abstract = {This paper proposes a maximum likelihood approach to jointly estimate marginal conditional quantiles of multivariate response variables in a linear regression framework. We consider a slight reparameterization of the multivariate asymmetric Laplace distribution proposed by Kotz et al. (2001) and exploit its location–scale mixture representation to implement a new EM algorithm for estimating model parameters. The idea is to extend the link between the asymmetric Laplace distribution and the well-known univariate quantile regression model to a multivariate context, i.e., when a multivariate dependent variable is concerned. The approach accounts for association among multiple responses and studies how the relationship between responses and explanatory variables can vary across different quantiles of the marginal conditional distribution of the responses. A penalized version of the EM algorithm is also presented to tackle the problem of variable selection. The validity of our approach is analyzed in a simulation study, where we also provide evidence on the efficiency gain of the proposed method compared to estimation obtained by separate univariate quantile regressions. A real data application examines the main determinants of financial distress in a sample of Italian firms.},
+	language = {en},
+	urldate = {2022-11-12},
+	journal = {Journal of Multivariate Analysis},
+	author = {Petrella, Lea and Raponi, Valentina},
+	month = sep,
+	year = {2019},
+	note = {21 citations (Crossref) [2022-11-13]},
+	keywords = {Maximum likelihood, Quantile regression, EM algorithm, Multiple quantiles, Multivariate asymmetric Laplace distribution, Multivariate response variables},
+	pages = {70--84}
+}
+
+@book{kotz_laplace_2012,
+	address = {New York},
+	edition = {Softcover reprint of the original 1st ed. 2001 edition},
+	title = {The {Laplace} {Distribution} and {Generalizations}: {A} {Revisit} with {Applications} to {Communications}, {Economics}, {Engineering}, and {Finance}},
+	isbn = {978-1-4612-6646-4},
+	shorttitle = {The {Laplace} {Distribution} and {Generalizations}},
+	language = {English},
+	publisher = {Birkhäuser},
+	author = {Kotz, Samuel and Kozubowski, Tomasz and Podgorski, Krzystof},
+	month = nov,
+	year = {2012}
+}
+
+
+@techreport{schuler_asymmetric_2014,
+	title = {Asymmetric {Effects} of {Uncertainty} {Over} the {Business} {Cycle}: {A} {Quantile} {Structural} {Vector} {Autoregressive} {Approach}},
+	shorttitle = {Asymmetric {Effects} of {Uncertainty} over the {Business} {Cycle}},
+	abstract = {This paper proposes to relate conditional quantiles of stationary macroeconomic time series to the different phases of the business cycle. Based on this idea, I introduce a Bayesian Quantile Structural Vector Autoregressive framework for the analysis of the effects of uncertainty on the US real economy. For this purpose, I define a novel representation of the multivariate Laplace distribution that allows for the joint treatment of multiple equation regression quantiles. I find significant evidence for asymmetric effects of uncertainty over the US business cycle. The strongest negative effects are revealed during recession periods. During boom phases uncertainty shocks improve the soundness of the economy. Moreover, the phase of the financial sector matters when the real economy is at recession but not if the economy is at boom. When the financial system is in a bad state, an uncertainty shock leads to a deeper recession than in times when the financial system is in a good state.},
+	language = {en},
+	urldate = {2023-01-28},
+	author = {Schüler, Yves S.},
+	institution = {Department of Economics, University of Konstanz},
+	month = jan,
+	year = {2014},
+	note = {Number: 2014-02 Publisher: Department of Economics, University of Konstanz},
+	keywords = {Economic Cycles, Multivariate Laplace, Quantile SVAR, Uncertainty}
+}
+
+
+@article{van_erp_shrinkage_2019,
+	title = {Shrinkage {Priors} for {Bayesian} {Penalized} {Regression}},
+	volume = {89},
+	issn = {0022-2496},
+	abstract = {In linear regression problems with many predictors, penalized regression techniques are often used to guard against overfitting and to select variables relevant for predicting an outcome variable. Recently, Bayesian penalization is becoming increasingly popular in which the prior distribution performs a function similar to that of the penalty term in classical penalization. Specifically, the so-called shrinkage priors in Bayesian penalization aim to shrink small effects to zero while maintaining true large effects. Compared to classical penalization techniques, Bayesian penalization techniques perform similarly or sometimes even better, and they offer additional advantages such as readily available uncertainty estimates, automatic estimation of the penalty parameter, and more flexibility in terms of penalties that can be considered. However, many different shrinkage priors exist and the available, often quite technical, literature primarily focuses on presenting one shrinkage prior and often provides comparisons with only one or two other shrinkage priors. This can make it difficult for researchers to navigate through the many prior options and choose a shrinkage prior for the problem at hand. Therefore, the aim of this paper is to provide a comprehensive overview of the literature on Bayesian penalization. We provide a theoretical and conceptual comparison of nine different shrinkage priors and parametrize the priors, if possible, in terms of scale mixture of normal distributions to facilitate comparisons. We illustrate different characteristics and behaviors of the shrinkage priors and compare their performance in terms of prediction and variable selection in a simulation study. Additionally, we provide two empirical examples to illustrate the application of Bayesian penalization. Finally, an R package bayesreg is available online (https://github.com/sara-vanerp/bayesreg) which allows researchers to perform Bayesian penalized regression with novel shrinkage priors in an easy manner.},
+	language = {en},
+	urldate = {2023-02-10},
+	journal = {Journal of Mathematical Psychology},
+	author = {van Erp, Sara and Oberski, Daniel L. and Mulder, Joris},
+	month = apr,
+	year = {2019},
+	keywords = {Regression, Bayesian, Penalization, Empirical Bayes, Shrinkage priors},
+	pages = {31--50}
+}
+
+
+@article{montes-rojas_multivariate_2019,
+	title = {Multivariate {Quantile} {Impulse} {Response} {Functions}},
+	volume = {40},
+	issn = {1467-9892},
+	abstract = {A reduced form multivariate quantile autoregressive model is developed to study heterogeneity in the effects of macroeconomic shocks. This framework is used for forecasting and for constructing quantile impulse response functions that explore dynamic heterogeneity in the response of endogenous variables to different shocks. The methodology allows evaluating different quantile paths, defined as the dynamic effects for a fix collection of quantile indexes. The model is applied to study monetary shocks in a three-variable macroeconomic model (output gap, inflation, Fed Funds rate) for the USA for the period 1980q1–2010q1.},
+	language = {en},
+	number = {5},
+	urldate = {2022-07-04},
+	journal = {Journal of Time Series Analysis},
+	author = {Montes-Rojas, Gabriel},
+	year = {2019},
+	keywords = {impulse response functions, Multivariate quantiles, multivariate time-series, vector autoregression},
+	pages = {739--752}
+}
+
+
+@article{chen_direct_2023,
+	title = {A direct approach to {Kilian}–{Lewis} style counterfactual analysis in vector autoregression models},
+	volume = {38},
+	issn = {1099-1255},
+	abstract = {This paper proposes a direct approach to Kilian–Lewis style counterfactual analysis in structural vector autoregression models. The proposed approach is easy to implement, and the procedure of counterfactual construction is more transparent than the indirect approach. Practitioners conducting Kilian–Lewis style counterfactual analysis should find the proposed approach novel and useful.},
+	language = {en},
+	number = {7},
+	urldate = {2024-03-03},
+	journal = {Journal of Applied Econometrics},
+	author = {Chen, Shiu-Sheng},
+	year = {2023},
+	keywords = {counterfactual analysis, SVAR model},
+	pages = {1068--1076}
+}
+
+
+@book{lutkepohl_new_2005,
+	address = {Berlin},
+	title = {New {Introduction} to {Multiple} {Time} {Series} {Analysis}},
+	isbn = {978-3-540-40172-8},
+	language = {en},
+	publisher = {New York : Springer},
+	author = {Lütkepohl, Helmut},
+	year = {2005},
+	keywords = {Time-series analysis}
+}
+
+
+
+
+
