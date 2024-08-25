@@ -8,12 +8,12 @@ install.packages(
 )
 # if you download source package file
 install.packages(
-  "path to your download path/bayesQVAR_1.0.0.tar.gz",
+  "path to your download folder/bayesQVAR_1.0.0.tar.gz",
   type = "source"
 )
 # if you download binary package file
 install.packages(
-  "path to your download path/bayesQVAR_1.0.0.zip",
+  "path to your download folder/bayesQVAR_1.0.0.zip",
   type = "binary"
 )
 ```
