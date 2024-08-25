@@ -2,6 +2,7 @@
 ## Installation
 Install the dependencies, then download the source package file or binary package file from Release and install it locally.
 ```
+# install dependencies
 install.packages(
   c("Rcpp", "parallel", "GIGrvg", "LaplacesDemon", "Rdpack", "S7", "patchwork", "ggplot2", "stringr")
 )
