@@ -61,9 +61,9 @@ To consider the effect of common factors on $\boldsymbol{Y}_t$, we can extend th
 
 #### Asymmetric Laplace Distribution
 
-The first popular likelihood specification is to assume each element of quantile shocks obeies **asymmetric Laplace distribution** (ALD), i.e. $u(\alpha_i)_{it}\sim \mathcal{AL}(0, \alpha_i, \delta_i)$, where $\alpha_i$ is probability parameter and $\delta_i>0$ is scale parameter. According to the property of ALD, the conditional distribution of $Y_{it}$ is $\mathcal{AL}\left(q(\alpha_i)_i + \sum_{p=1}^P\sum_{j=1}^N a(\alpha_i)_{ij,p} Y_{j,t-p}, \alpha_i, \delta_i\right)$. The density function of $Y_{it}$ is
+The first popular likelihood specification is to assume each element of quantile shocks obey **asymmetric Laplace distribution** (ALD), i.e. $u(\alpha_i)_{it}\sim \mathcal{AL}(0, \alpha_i, \delta_i)$, where $\alpha_i$ is probability parameter and $\delta_i>0$ is the scale parameter. According to the property of ALD, the conditional distribution of $Y_{it}$ is $\mathcal{AL}\left(q(\alpha_i)_i + \sum_{p=1}^P\sum_{j=1}^N a(\alpha_i)_{ij,p} Y_{j,t-p}, \alpha_i, \delta_i\right)$. The density function of $Y_{it}$ is
 
-$$
+```math
 \begin{equation}
 f_{Y_{it}}(y_{it}) = \frac{\alpha_i(1 - \alpha_i)}{\delta_i}
 \begin{cases}
@@ -71,15 +71,15 @@ f_{Y_{it}}(y_{it}) = \frac{\alpha_i(1 - \alpha_i)}{\delta_i}
 \exp\left(\dfrac{1-\alpha_i}{\delta_i} e(\alpha_i)_{it} \right) & \text{if } e(\alpha_i) < 0.
 \end{cases}
 \end{equation}
-$$
+```
 
 where $e(\alpha_i)_{it} = y_{it} - q(\alpha_i)_i - \sum_{p=1}^P\sum_{j=1}^N a(\alpha_i)_{ij,p} Y_{j,t-p}$. For the facility of implementation of Bayesian estimation, we use the _mixture representation property_ to write the distribtuion of $Y_{it}$ as the mixture of standard normal distribution and exponential distribution, that is
 
-$$
+```math
 \begin{equation}
 Y_{it} = q(\alpha_i)_i + \sum_{p=1}^P\sum_{j=1}^N a(\alpha_i)_{ij,p} Y_{j,t-p} + \delta_i \tilde{\xi}_i W_{it} + \delta_i \tilde{\sigma}_i \sqrt{W_{it}} Z_{it},
 \end{equation}
-$$
+```
 
 where $W_{it}\sim \mathcal{EXP}(1)$, $Z_{it} \sim \mathcal{N}(0,1)$ and they are independent. $W_{it}$ is called the **_latent variable_**. The parameters $\tilde{\xi}_i$ and $\tilde{\sigma}_i$ should satisfy
 
