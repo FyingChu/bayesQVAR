@@ -95,28 +95,28 @@ The restriction is to ensure that $Q_{\alpha_i}(Y_{it}) = q(\alpha_i)_i + \sum_{
 
 Another feasible likelihood function setting is to assume that $\boldsymbol{Y}_t$ jointly obey **_multivariate asymmetric Laplace distribution_** (MALD), denoted as $\boldsymbol{Y}_t \sim \mathcal{MAL}\left(\boldsymbol{q}(\boldsymbol{\alpha}) + \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p \boldsymbol{y}_{t-p}, \mathbf{D}\tilde{\boldsymbol{\xi}}, \mathbf{D}\tilde{\mathbf{\Sigma}} \mathbf{D} \right)$, where $\mathbf{D}=\mathrm{diag}(\delta_1, \delta_2, \cdots, \delta_N)$ is the diagonal matrix of scale parameter, $\tilde{\boldsymbol{\xi}}=\left[\tilde{\xi}_1\ \tilde{\xi}_2\ \cdots\ \tilde{\xi}_N\right]^{\top}$ and $\tilde{\mathbf{\Sigma}}$ is a $N\times N$ positive definite matrix . The density function of $\boldsymbol{Y}_t$ is
 
-$$
+```nath
 \begin{equation}
 f_{\boldsymbol{Y}_t}(\boldsymbol{y}_t) = \frac{2 \exp\left( \boldsymbol{e}(\boldsymbol{\alpha})_t^{\top} \mathbf{D}^{-1} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\boldsymbol{\xi}} \right) }{(2\pi)^{N/2} \left|\mathbf{D} \tilde{\mathbf{\Sigma}} \mathbf{D}\right|^{1/2} } \left(\frac{m_t}{2+d}\right)^{\nu/2} K_{\nu}\left[\sqrt{(2+d)m_t}\right],
 \end{equation}
-$$
+```
 
 where $\boldsymbol{e}(\boldsymbol{\alpha})_t = \boldsymbol{y}_{it} - \boldsymbol{q}(\boldsymbol{\alpha}) - \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p \boldsymbol{y}_{t-p}$, $m_t = \boldsymbol{e}(\boldsymbol{\alpha})^{\top} \mathbf{D}^{-1} \tilde{\mathbf{\Sigma}}^{-1} \mathbf{D}^{-1} \boldsymbol{e}(\boldsymbol{\alpha})$, $d=\tilde{\xi}^{\top} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\boldsymbol{\xi}}.$ $K_{\nu}(\cdot)$ is the modified Bessel function of the third kind where $\nu = (2-N)/2$. To fix that the $\boldsymbol{\alpha}$-quantile of $\boldsymbol{u}(\boldsymbol{\alpha})_{t}$, $\tilde{\boldsymbol{\xi}}$ and the diagonals of $\tilde{\mathbf{\Sigma}}$ should satisfy
 
-$$
+```math
 \begin{equation}
 \tilde{\xi}_i = \frac{1 - 2 \alpha_i}{ \alpha_i (1 - \alpha_i)}, \tilde{\sigma}_i^2 = \frac{2}{\alpha_i(1 - \alpha_i)}, i=1,2,\cdots,N.
 \end{equation}
-$$
+```
 
 Similarly, MALD also has a mixture representation, which takes the form of
 
-$$
+```math
 \begin{equation}
 \boldsymbol{Y}_t = \boldsymbol{q}(\boldsymbol{\alpha}) + \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p \boldsymbol{Y}_{t-p} + \mathbf{D}\tilde{\xi}W_t + \sqrt{W_t} \mathbf{D} \tilde{\mathbf{\Sigma}}^{1
 }\boldsymbol{Z}_t,
 \end{equation}
-$$
+```
 
 where $W_t \sim \mathcal{EXP}(1)$, $\mathbf{Z}_t \sim \mathcal{N}(\boldsymbol{0}, \mathbf{I}_N)$. Compared to the case of ALD likelihood, the latent variable $W_t$ here is common for all cross-sectional units, which will reduce sampling burden of MCMC algorithm.
 
@@ -124,9 +124,9 @@ where $W_t \sim \mathcal{EXP}(1)$, $\mathbf{Z}_t \sim \mathcal{N}(\boldsymbol{0}
 
 #### AL-likelihood Case
 
-Define $\boldsymbol{X}_t$$=[\boldsymbol{1}_N\ \boldsymbol{Y}_{t-1}\ \boldsymbol{Y}_{t-2}\ \cdots\ \boldsymbol{Y}_{t-P}]$, $\mathbf{B}(\boldsymbol{\alpha})=[\boldsymbol{q}(\boldsymbol{\alpha})\ \mathbf{A}(\boldsymbol{\alpha})_1\ \mathbf{A}(\boldsymbol{\alpha})_2\ \cdots\ \mathbf{A}(\boldsymbol{\alpha})_P]$ and $\boldsymbol{b}(\alpha_i)_{i\cdot}$ is the $i$-th row of the $\mathbf{B}(\boldsymbol{\alpha})$. The prior distributions of parameter in the case of ALD are
+Define $\boldsymbol{X}_t$$=[\boldsymbol{1}_N\ \boldsymbol{Y}_{t-1}\ \boldsymbol{Y}_{t-2}\ \cdots\ \boldsymbol{Y}_{t-P}]$, $\mathbf{B}(\boldsymbol{\alpha})=[\boldsymbol{q}(\boldsymbol{\alpha})\ \mathbf{A}(\boldsymbol{\alpha})_1\ \mathbf{A}(\boldsymbol{\alpha})_2\ \cdots\ \mathbf{A}(\boldsymbol{\alpha})_P]$ and $\boldsymbol{b}(\alpha_i)_{i\cdot}$ is the $i$-th row of the $\mathbf{B}(\boldsymbol{\alpha})$. The prior distributions of the parameters in the case of ALD are
 
-$$
+```math
 \begin{align}
 & \text{Prior:}
 \begin{cases}
@@ -138,7 +138,7 @@ W_{it} \sim \mathcal{EXP}(1), \\
 & \text{AL-Likelihood: } Y_{it} | \boldsymbol{b}(\alpha_i)_{i\cdot}, \delta_i, \tilde{\xi}_i, \tilde{\sigma}_i, \boldsymbol{x}_t, w_{it} \sim \mathcal{N}\left(\boldsymbol{x}_t^{\top} \boldsymbol{b}(\alpha_i)_{i\cdot} + \tilde{\xi}_i \delta_i w_{it},\ \delta_i^2 w_{it} \tilde{\sigma}_i^2 \right), \\
 & i= 1,2,\cdots,N, j=1,2,\cdots,N, t=1,2,\cdots, T. \notag
 \end{align}
-$$
+```
 
 where $\mathbf{\Lambda}_i = \mathrm{diag}(\lambda_{i1}, \lambda_{i2}, \cdots, \lambda_{i,NP+1})$ is the diagonal matrix of penalty parameters for $\boldsymbol{b}(\alpha_i)_{i\cdot}$ The smaller is $\lambda_{ij}$, the more concentrated is $b(\alpha_i)_{ij}$ aounrd 0. $\mathcal{IG}(\alpha, \beta)$ represents Inverse Gamma distribution with shape parameter $\alpha > 0$ and scale parameter $\beta > 0$.
 
@@ -146,7 +146,7 @@ where $\mathbf{\Lambda}_i = \mathrm{diag}(\lambda_{i1}, \lambda_{i2}, \cdots, \l
 
 In MALD case, the prior are
 
-$$
+```math
 \begin{align}
 & \text{Prior: }
 \begin{cases}
@@ -159,7 +159,7 @@ W_t \sim \mathcal{EXP}(1), \\
 & \text{MAL-Likelihood: } \boldsymbol{Y}_t | \{\alpha_i\}_{i=1}^N, \left\{\boldsymbol{b}(\alpha_i)_{i\cdot}\right\}_{i=1}^N, \{\delta_i\}_{i=1}^N, \tilde{\mathbf{\Sigma}}, \boldsymbol{x}_t, w_t \sim \mathcal{N}\left( \mathbf{B}(\boldsymbol{\alpha})\boldsymbol{x}_t + \mathbf{D}\tilde{\boldsymbol{\xi}} w_t, w_t \mathbf{D}\tilde{\mathbf{\Sigma}} \mathbf{D} \right), \\
 & i= 1,2,\cdots,N, j=1,2,\cdots,N, t=1,2,\cdots, T. \notag
 \end{align}
-$$
+```
 
 ### Posterior Distribution
 
