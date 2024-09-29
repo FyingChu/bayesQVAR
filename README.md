@@ -83,11 +83,11 @@ Y_{it} = q(\alpha_i)_i + \sum_{p=1}^P\sum_{j=1}^N a(\alpha_i)_{ij,p} Y_{j,t-p} +
 
 where $W_{it}\sim \mathcal{EXP}(1)$, $Z_{it} \sim \mathcal{N}(0,1)$ and they are independent. $W_{it}$ is called the **_latent variable_**. The parameters $\tilde{\xi}_i$ and $\tilde{\sigma}_i$ should satisfy
 
-$$
+```math
 \begin{equation}
 \tilde{\xi}_i = \frac{1 - 2 \alpha_i}{ \alpha_i (1 - \alpha_i)}, \tilde{\sigma}_i^2 = \frac{2}{\alpha_i(1 - \alpha_i)}.
 \end{equation}
-$$
+```
 
 The restriction is to ensure that $Q_{\alpha_i}(Y_{it}) = q(\alpha_i)_i + \sum_{p=1}^P\sum_{j=1}^N a(\alpha_i)_{ij,p} Y_{j,t-p}$, or equivalently, $Q_{\alpha_i}(u(\alpha_i)_{it})=0$.
 
