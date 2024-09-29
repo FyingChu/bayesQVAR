@@ -26,24 +26,24 @@ install.packages(
 
 ## Model Specification of QVAR
 
-The **$P$**-order QVAR at probability vector$\bm{\alpha}=[\alpha_1\ \alpha_2\ \cdots\ \alpha_N]^{\top} \in (0, 1)^{N}$without exogenous variable, denoted as $\mathrm{QVAR}(P)$takes the form of
+The **$P$**-order QVAR at probability vector$\boldsymbol{\alpha}=[\alpha_1\ \alpha_2\ \cdots\ \alpha_N]^{\top} \in (0, 1)^{N}$without exogenous variable, denoted as $\mathrm{QVAR}(P)$takes the form of
 
 $$
 \begin{gather}
-\bm{Y}_t = \bm{q}(\bm{\alpha}) + \sum_{p=1}^P \mathbf{A}(\bm{\alpha})_p Y_{t-p} + \bm{u}(\bm{\alpha})_t, Q_{\bm{\alpha}}(\bm{u}(\bm{\alpha})_t|I_t) = \bm{0}, \\
-\bm{Y}_t = \begin{bmatrix}
+\boldsymbol{Y}_t = \boldsymbol{q}(\boldsymbol{\alpha}) + \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p Y_{t-p} + \boldsymbol{u}(\boldsymbol{\alpha})_t, Q_{\boldsymbol{\alpha}}(\boldsymbol{u}(\boldsymbol{\alpha})_t|I_t) = \boldsymbol{0}, \\
+\boldsymbol{Y}_t = \begin{bmatrix}
 Y_{1t} \\
 Y_{2t} \\
 \vdots \\
 Y_{Nt}
 \end{bmatrix},
-\bm{u}(\bm{\alpha})_t = \begin{bmatrix}
+\boldsymbol{u}(\boldsymbol{\alpha})_t = \begin{bmatrix}
 u(\alpha_1)_{1t} \\
 u(\alpha_2)_{2t} \\
 \vdots \\
 u(\alpha_N)_{Nt}
 \end{bmatrix},
-\mathbf{A}(\bm{\alpha})_p=\begin{bmatrix}
+\mathbf{A}(\boldsymbol{\alpha})_p=\begin{bmatrix}
 a(\alpha_1)_{11,p} & a(\alpha_1)_{12,p} & \cdots & a(\alpha_1)_{1N,p} \\
 a(\alpha_2)_{21,p} & a(\alpha_2)_{22,p} & \cdots & a(\alpha_2)_{2N,p} \\
 \vdots & \vdots & \ddots & \vdots \\
@@ -52,9 +52,9 @@ a(\alpha_N)_{N1,p} & a(\alpha_N)_{N2,p} & \cdots & a(\alpha_N)_{NN,p}
 \end{gather}
 $$
 
-where $Q_{\bm{\alpha}}(\cdot)$ is **_quantile operator_**, which means that it calculates element-wise quantile of the random vector in the parenthesis according to the probability vector $\bm{\alpha}$, that is $Q_{\bm{\alpha}}(\bm{X}) = \begin{bmatrix}Q_{\alpha_1}(X_1) & Q_{\alpha_2}(X_2) & \cdots & Q_{\alpha_N}(X_N)\end{bmatrix}^{\top}$. $Q_{\bm{\alpha}}\left(\bm{u}(\bm{\alpha})_t|I_t\right)=\bm{0}$ implies that the conditional $\bm{\alpha}$-quantile of $\bm{Y}_t $ is $Q_{\bm{\alpha}}\left(\bm{Y}_t|I_t\right) = \bm{q}(\bm{\alpha}) + \sum_{p=1}^P \mathbf{A}(\bm{\alpha})_p\bm{Y}_{t-p}$. In other words, $\bm{u}(\bm{\alpha})_t$ is the forecast error that drive the observation of $\bm{y}_t$ to deviate from conditional $\bm{\alpha}$-quantile of $\bm{Y}_t$. In this sense, **$\bm{u}(\bm{\alpha})_t$ **can be named as **_quantile shock_**.
+where $Q_{\boldsymbol{\alpha}}(\cdot)$ is **_quantile operator_**, which means that it calculates element-wise quantile of the random vector in the parenthesis according to the probability vector $\boldsymbol{\alpha}$, that is $Q_{\boldsymbol{\alpha}}(\boldsymbol{X}) = \begin{bmatrix}Q_{\alpha_1}(X_1) & Q_{\alpha_2}(X_2) & \cdots & Q_{\alpha_N}(X_N)\end{bmatrix}^{\top}$. $Q_{\boldsymbol{\alpha}}\left(\boldsymbol{u}(\boldsymbol{\alpha})_t|I_t\right)=\boldsymbol{0}$ implies that the conditional $\boldsymbol{\alpha}$-quantile of $\boldsymbol{Y}_t $ is $Q_{\boldsymbol{\alpha}}\left(\boldsymbol{Y}_t|I_t\right) = \boldsymbol{q}(\boldsymbol{\alpha}) + \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p\boldsymbol{Y}_{t-p}$. In other words, $\boldsymbol{u}(\boldsymbol{\alpha})_t$ is the forecast error that drive the observation of $\boldsymbol{y}_t$ to deviate from conditional $\boldsymbol{\alpha}$-quantile of $\boldsymbol{Y}_t$. In this sense, **$\boldsymbol{u}(\boldsymbol{\alpha})_t$ **can be named as **_quantile shock_**.
 
-To consider the effect of common factors on $\bm{Y}_t$, we can extend the model by introducing lagged exogenous variables.
+To consider the effect of common factors on $\boldsymbol{Y}_t$, we can extend the model by introducing lagged exogenous variables.
 
 ## Bayesian Estimation of QVAR
 
@@ -94,15 +94,15 @@ The restriction is to ensure that $Q_{\alpha_i}(Y_{it}) = q(\alpha_i)_i + \sum_{
 
 #### Multivariate Asymmetric Laplace Distribution
 
-Another feasible likelihood function setting is to assume that $\bm{Y}_t$ jointly obey **_multivariate asymmetric Laplace distribution_** (MALD), denoted as $\bm{Y}_t \sim \mathcal{MAL}\left(\bm{q}(\bm{\alpha}) + \sum_{p=1}^P \mathbf{A}(\bm{\alpha})_p \bm{y}_{t-p}, \mathbf{D}\tilde{\bm{\xi}}, \mathbf{D}\tilde{\mathbf{\Sigma}} \mathbf{D} \right)$, where $\mathbf{D}=\mathrm{diag}(\delta_1, \delta_2, \cdots, \delta_N)$ is the diagonal matrix of scale parameter, $\tilde{\bm{\xi}}=\left[\tilde{\xi}_1\ \tilde{\xi}_2\ \cdots\ \tilde{\xi}_N\right]^{\top}$ and $\tilde{\mathbf{\Sigma}}$ is a $N\times N$ positive definite matrix . The density function of $\bm{Y}_t$ is
+Another feasible likelihood function setting is to assume that $\boldsymbol{Y}_t$ jointly obey **_multivariate asymmetric Laplace distribution_** (MALD), denoted as $\boldsymbol{Y}_t \sim \mathcal{MAL}\left(\boldsymbol{q}(\boldsymbol{\alpha}) + \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p \boldsymbol{y}_{t-p}, \mathbf{D}\tilde{\boldsymbol{\xi}}, \mathbf{D}\tilde{\mathbf{\Sigma}} \mathbf{D} \right)$, where $\mathbf{D}=\mathrm{diag}(\delta_1, \delta_2, \cdots, \delta_N)$ is the diagonal matrix of scale parameter, $\tilde{\boldsymbol{\xi}}=\left[\tilde{\xi}_1\ \tilde{\xi}_2\ \cdots\ \tilde{\xi}_N\right]^{\top}$ and $\tilde{\mathbf{\Sigma}}$ is a $N\times N$ positive definite matrix . The density function of $\boldsymbol{Y}_t$ is
 
 $$
 \begin{equation}
-f_{\bm{Y}_t}(\bm{y}_t) = \frac{2 \exp\left( \bm{e}(\bm{\alpha})_t^{\top} \mathbf{D}^{-1} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\bm{\xi}} \right) }{(2\pi)^{N/2} \left|\mathbf{D} \tilde{\mathbf{\Sigma}} \mathbf{D}\right|^{1/2} } \left(\frac{m_t}{2+d}\right)^{\nu/2} K_{\nu}\left[\sqrt{(2+d)m_t}\right],
+f_{\boldsymbol{Y}_t}(\boldsymbol{y}_t) = \frac{2 \exp\left( \boldsymbol{e}(\boldsymbol{\alpha})_t^{\top} \mathbf{D}^{-1} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\boldsymbol{\xi}} \right) }{(2\pi)^{N/2} \left|\mathbf{D} \tilde{\mathbf{\Sigma}} \mathbf{D}\right|^{1/2} } \left(\frac{m_t}{2+d}\right)^{\nu/2} K_{\nu}\left[\sqrt{(2+d)m_t}\right],
 \end{equation}
 $$
 
-where $\bm{e}(\bm{\alpha})_t = \bm{y}_{it} - \bm{q}(\bm{\alpha}) - \sum_{p=1}^P \mathbf{A}(\bm{\alpha})_p \bm{y}_{t-p}$, $m_t = \bm{e}(\bm{\alpha})^{\top} \mathbf{D}^{-1} \tilde{\mathbf{\Sigma}}^{-1} \mathbf{D}^{-1} \bm{e}(\bm{\alpha})$, $d=\tilde{\xi}^{\top} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\bm{\xi}}.$ $K_{\nu}(\cdot)$ is the modified Bessel function of the third kind where $\nu = (2-N)/2$. To fix that the $\bm{\alpha}$-quantile of $\bm{u}(\bm{\alpha})_{t}$, $\tilde{\bm{\xi}}$ and the diagonals of $\tilde{\mathbf{\Sigma}}$ should satisfy
+where $\boldsymbol{e}(\boldsymbol{\alpha})_t = \boldsymbol{y}_{it} - \boldsymbol{q}(\boldsymbol{\alpha}) - \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p \boldsymbol{y}_{t-p}$, $m_t = \boldsymbol{e}(\boldsymbol{\alpha})^{\top} \mathbf{D}^{-1} \tilde{\mathbf{\Sigma}}^{-1} \mathbf{D}^{-1} \boldsymbol{e}(\boldsymbol{\alpha})$, $d=\tilde{\xi}^{\top} \tilde{\mathbf{\Sigma}}^{-1} \tilde{\boldsymbol{\xi}}.$ $K_{\nu}(\cdot)$ is the modified Bessel function of the third kind where $\nu = (2-N)/2$. To fix that the $\boldsymbol{\alpha}$-quantile of $\boldsymbol{u}(\boldsymbol{\alpha})_{t}$, $\tilde{\boldsymbol{\xi}}$ and the diagonals of $\tilde{\mathbf{\Sigma}}$ should satisfy
 
 $$
 \begin{equation}
@@ -114,34 +114,34 @@ Similarly, MALD also has a mixture representation, which takes the form of
 
 $$
 \begin{equation}
-\bm{Y}_t = \bm{q}(\bm{\alpha}) + \sum_{p=1}^P \mathbf{A}(\bm{\alpha})_p \bm{Y}_{t-p} + \mathbf{D}\tilde{\xi}W_t + \sqrt{W_t} \mathbf{D} \tilde{\mathbf{\Sigma}}^{1
-}\bm{Z}_t,
+\boldsymbol{Y}_t = \boldsymbol{q}(\boldsymbol{\alpha}) + \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p \boldsymbol{Y}_{t-p} + \mathbf{D}\tilde{\xi}W_t + \sqrt{W_t} \mathbf{D} \tilde{\mathbf{\Sigma}}^{1
+}\boldsymbol{Z}_t,
 \end{equation}
 $$
 
-where $W_t \sim \mathcal{EXP}(1)$, $\mathbf{Z}_t \sim \mathcal{N}(\bm{0}, \mathbf{I}_N)$. Compared to the case of ALD likelihood, the latent variable $W_t$ here is common for all cross-sectional units, which will reduce sampling burden of MCMC algorithm.
+where $W_t \sim \mathcal{EXP}(1)$, $\mathbf{Z}_t \sim \mathcal{N}(\boldsymbol{0}, \mathbf{I}_N)$. Compared to the case of ALD likelihood, the latent variable $W_t$ here is common for all cross-sectional units, which will reduce sampling burden of MCMC algorithm.
 
 ### Prior Distribution
 
 #### AL-likelihood Case
 
-Define $\bm{X}_t$$=[\bm{1}_N\ \bm{Y}_{t-1}\ \bm{Y}_{t-2}\ \cdots\ \bm{Y}_{t-P}]$, $\mathbf{B}(\bm{\alpha})=[\bm{q}(\bm{\alpha})\ \mathbf{A}(\bm{\alpha})_1\ \mathbf{A}(\bm{\alpha})_2\ \cdots\ \mathbf{A}(\bm{\alpha})_P]$ and $\bm{b}(\alpha_i)_{i\cdot}$ is the $i$-th row of the $\mathbf{B}(\bm{\alpha})$. The prior distributions of parameter in the case of ALD are
+Define $\boldsymbol{X}_t$$=[\boldsymbol{1}_N\ \boldsymbol{Y}_{t-1}\ \boldsymbol{Y}_{t-2}\ \cdots\ \boldsymbol{Y}_{t-P}]$, $\mathbf{B}(\boldsymbol{\alpha})=[\boldsymbol{q}(\boldsymbol{\alpha})\ \mathbf{A}(\boldsymbol{\alpha})_1\ \mathbf{A}(\boldsymbol{\alpha})_2\ \cdots\ \mathbf{A}(\boldsymbol{\alpha})_P]$ and $\boldsymbol{b}(\alpha_i)_{i\cdot}$ is the $i$-th row of the $\mathbf{B}(\boldsymbol{\alpha})$. The prior distributions of parameter in the case of ALD are
 
 $$
 \begin{align}
 & \text{Prior:}
 \begin{cases}
 W_{it} \sim \mathcal{EXP}(1), \\
-\bm{b}(\alpha_i)_{i\cdot} \sim \mathcal{N}\left(\bm{0}, \bm{\Lambda}_i \underline{\mathbf{V}}_i\right), \\
+\boldsymbol{b}(\alpha_i)_{i\cdot} \sim \mathcal{N}\left(\boldsymbol{0}, \boldsymbol{\Lambda}_i \underline{\mathbf{V}}_i\right), \\
 \delta_i \sim \mathcal{IG}\left(\underline{n}_{\delta,i}/2, \underline{s}_{\delta,i}/2 \right), \\
 \lambda_{ij} \sim \mathcal{IG}\left(\underline{n}_{\lambda,ij}/2, \underline{s}_{\lambda,ij}/2 \right),
 \end{cases}  \\
-& \text{AL-Likelihood: } Y_{it} | \bm{b}(\alpha_i)_{i\cdot}, \delta_i, \tilde{\xi}_i, \tilde{\sigma}_i, \bm{x}_t, w_{it} \sim \mathcal{N}\left(\bm{x}_t^{\top} \bm{b}(\alpha_i)_{i\cdot} + \tilde{\xi}_i \delta_i w_{it},\ \delta_i^2 w_{it} \tilde{\sigma}_i^2 \right), \\
+& \text{AL-Likelihood: } Y_{it} | \boldsymbol{b}(\alpha_i)_{i\cdot}, \delta_i, \tilde{\xi}_i, \tilde{\sigma}_i, \boldsymbol{x}_t, w_{it} \sim \mathcal{N}\left(\boldsymbol{x}_t^{\top} \boldsymbol{b}(\alpha_i)_{i\cdot} + \tilde{\xi}_i \delta_i w_{it},\ \delta_i^2 w_{it} \tilde{\sigma}_i^2 \right), \\
 & i= 1,2,\cdots,N, j=1,2,\cdots,N, t=1,2,\cdots, T. \notag
 \end{align}
 $$
 
-where $\mathbf{\Lambda}_i = \mathrm{diag}(\lambda_{i1}, \lambda_{i2}, \cdots, \lambda_{i,NP+1})$ is the diagonal matrix of penalty parameters for $\bm{b}(\alpha_i)_{i\cdot}$ The smaller is $\lambda_{ij}$, the more concentrated is $b(\alpha_i)_{ij}$ aounrd 0. $\mathcal{IG}(\alpha, \beta)$ represents Inverse Gamma distribution with shape parameter $\alpha > 0$ and scale parameter $\beta > 0$.
+where $\mathbf{\Lambda}_i = \mathrm{diag}(\lambda_{i1}, \lambda_{i2}, \cdots, \lambda_{i,NP+1})$ is the diagonal matrix of penalty parameters for $\boldsymbol{b}(\alpha_i)_{i\cdot}$ The smaller is $\lambda_{ij}$, the more concentrated is $b(\alpha_i)_{ij}$ aounrd 0. $\mathcal{IG}(\alpha, \beta)$ represents Inverse Gamma distribution with shape parameter $\alpha > 0$ and scale parameter $\beta > 0$.
 
 #### MAL-likelihood Case
 
@@ -152,12 +152,12 @@ $$
 & \text{Prior: }
 \begin{cases}
 W_t \sim \mathcal{EXP}(1), \\
-\bm{b}(\alpha_i)_{i\cdot} \sim \mathcal{N}(\bm{0}, \mathbf{\Lambda}_i \underline{\mathbf{V}}_i), \\
+\boldsymbol{b}(\alpha_i)_{i\cdot} \sim \mathcal{N}(\boldsymbol{0}, \mathbf{\Lambda}_i \underline{\mathbf{V}}_i), \\
 \delta_i \sim \mathcal{IG}\left(\underline{n}_{\delta,i}/2, \underline{s}_{\delta,i}/2\right),\\
-\tilde{\bm{\Sigma}} \sim \mathcal{IW}\left(\underline{\nu}, \underline{\mathbf{\Sigma}}\right), \\
+\tilde{\boldsymbol{\Sigma}} \sim \mathcal{IW}\left(\underline{\nu}, \underline{\mathbf{\Sigma}}\right), \\
 \lambda_{ij} \sim \mathcal{IG}\left(\underline{n}_{\lambda,ij}/2, \underline{s}_{\lambda,ij}/2 \right),
 \end{cases} \\
-& \text{MAL-Likelihood: } \bm{Y}_t | \{\alpha_i\}_{i=1}^N, \left\{\bm{b}(\alpha_i)_{i\cdot}\right\}_{i=1}^N, \{\delta_i\}_{i=1}^N, \tilde{\mathbf{\Sigma}}, \bm{x}_t, w_t \sim \mathcal{N}\left( \mathbf{B}(\bm{\alpha})\bm{x}_t + \mathbf{D}\tilde{\bm{\xi}} w_t, w_t \mathbf{D}\tilde{\mathbf{\Sigma}} \mathbf{D} \right), \\
+& \text{MAL-Likelihood: } \boldsymbol{Y}_t | \{\alpha_i\}_{i=1}^N, \left\{\boldsymbol{b}(\alpha_i)_{i\cdot}\right\}_{i=1}^N, \{\delta_i\}_{i=1}^N, \tilde{\mathbf{\Sigma}}, \boldsymbol{x}_t, w_t \sim \mathcal{N}\left( \mathbf{B}(\boldsymbol{\alpha})\boldsymbol{x}_t + \mathbf{D}\tilde{\boldsymbol{\xi}} w_t, w_t \mathbf{D}\tilde{\mathbf{\Sigma}} \mathbf{D} \right), \\
 & i= 1,2,\cdots,N, j=1,2,\cdots,N, t=1,2,\cdots, T. \notag
 \end{align}
 $$
@@ -170,9 +170,9 @@ In the case of AL-likelihood, the posterior distribution of model parameters are
 
 $$
 \begin{align}
-& W_{it} | \alpha_i, \bm{b}(\alpha_i)_{i\cdot}, \delta_i, y_{it} \sim \mathcal{GIG}\left(\frac{1}{2}, d_i + 2, m_{it}\right), \\
-& \bm{b}(\alpha_i)_{i\cdot} | \alpha_i, \mathbf{\Lambda}_i, \delta_i, \{w_{it}\}_{t=1}^T, \{y_{it}\}_{t=1}^T, \{\bm{x}_t\}_{t=1}^T \sim \mathcal{N}\left(\bar{\bm{b}}_i, \bar{\mathbf{V}}_i\right), \\
-& \delta_i | \alpha_i, \bm{b}(\alpha_i)_{i\cdot}, \{v_{it}\}_{t=1}^T, \{y_{it}\}_{t=1}^T, \{\bm{x}_t\}_{t=1}^T \sim \mathcal{IG}\left(\frac{\bar{n}_{\delta, i}}{2}, \frac{\bar{s}_{\delta,i}}{2}\right), \\
+& W_{it} | \alpha_i, \boldsymbol{b}(\alpha_i)_{i\cdot}, \delta_i, y_{it} \sim \mathcal{GIG}\left(\frac{1}{2}, d_i + 2, m_{it}\right), \\
+& \boldsymbol{b}(\alpha_i)_{i\cdot} | \alpha_i, \mathbf{\Lambda}_i, \delta_i, \{w_{it}\}_{t=1}^T, \{y_{it}\}_{t=1}^T, \{\boldsymbol{x}_t\}_{t=1}^T \sim \mathcal{N}\left(\bar{\boldsymbol{b}}_i, \bar{\mathbf{V}}_i\right), \\
+& \delta_i | \alpha_i, \boldsymbol{b}(\alpha_i)_{i\cdot}, \{v_{it}\}_{t=1}^T, \{y_{it}\}_{t=1}^T, \{\boldsymbol{x}_t\}_{t=1}^T \sim \mathcal{IG}\left(\frac{\bar{n}_{\delta, i}}{2}, \frac{\bar{s}_{\delta,i}}{2}\right), \\
 & \lambda_{ij}| b(\alpha)_{ij} \sim \mathcal{IG}\left(\frac{\bar{n}_{\lambda, ij}}{2}, \frac{\bar{s}_{\lambda, ij}}{2}\right), \\
 & i=1,2,\cdots, N, j = 1, 2, \cdots, NP+1, t = 1,2,\cdots, T, \notag
 \end{align}
@@ -182,9 +182,9 @@ where $v_{it} = \delta_i w_{it}$, $\mathcal{GIG}(\alpha, \beta, n)$ represents G
 
 $$
 \begin{align}
-& \bar{\mathbf{V}}_i = \left(\sum_{t=1}^T \frac{1}{w_{it} \delta_i^2 \tilde{\sigma}_i^2} \bm{x}_t \bm{x}_t^{\top} + \underline{\mathbf{V}}_i^{-1} \mathbf{\Lambda}_i^{-1}\right)^{-1}, \\
-& \bar{\bm{b}}_i = \bar{\mathbf{V}}_i \left[\sum_{t=1}^T \frac{1}{w_t \delta_i^2 \tilde{\sigma}_i^2}\left(y_{it} - \delta_i\tilde{\xi}_i w_t\right) \bm{x}_t \right], \\
-& \bar{n}_{\delta,i} = \underline{n}_{\delta,i} + 3T, \bar{s}_{\delta,i}=\underline{s}_{\delta,i} + 2 \sum_{t=1}^T v_{it} + \sum_{t=1}^T \frac{\left( y_{it} - \bm{x}_t^{\top} \bm{b}(\alpha_i)_{i\cdot} -\tilde{\xi} v_{it} \right)^2}{v_{it} \tilde{\sigma}_i^2}, \\
+& \bar{\mathbf{V}}_i = \left(\sum_{t=1}^T \frac{1}{w_{it} \delta_i^2 \tilde{\sigma}_i^2} \boldsymbol{x}_t \boldsymbol{x}_t^{\top} + \underline{\mathbf{V}}_i^{-1} \mathbf{\Lambda}_i^{-1}\right)^{-1}, \\
+& \bar{\boldsymbol{b}}_i = \bar{\mathbf{V}}_i \left[\sum_{t=1}^T \frac{1}{w_t \delta_i^2 \tilde{\sigma}_i^2}\left(y_{it} - \delta_i\tilde{\xi}_i w_t\right) \boldsymbol{x}_t \right], \\
+& \bar{n}_{\delta,i} = \underline{n}_{\delta,i} + 3T, \bar{s}_{\delta,i}=\underline{s}_{\delta,i} + 2 \sum_{t=1}^T v_{it} + \sum_{t=1}^T \frac{\left( y_{it} - \boldsymbol{x}_t^{\top} \boldsymbol{b}(\alpha_i)_{i\cdot} -\tilde{\xi} v_{it} \right)^2}{v_{it} \tilde{\sigma}_i^2}, \\
 & i=1,2,\cdots, N, j = 1,2, \cdots, NP+1, t=1,2,\cdots, T. \notag
 \end{align}
 $$
@@ -195,23 +195,23 @@ If you adopt MAL likelihood, then the posterior distribution are
 
 $$
 \begin{align}
-& W_t|\bm{\alpha}, \mathbf{B}(\bm{\alpha}), \tilde{\mathbf{\Sigma}}, \bm{\delta}, \bm{y}_t, \bm{x}_t \sim \mathcal{GIG}\left(\frac{2-N}{2}, d+2, m_t\right), \\
-& \bm{b}(\alpha_i)_{i\cdot} | \bm{\alpha}, \bm{\Lambda}_i, \{\bm{b}(\alpha_j)_{j\cdot}\}_{j\neq i}, \tilde{\bm{\Sigma}}, \bm{\delta}, \{w_t\}_{t=1}^T, \{y_{it}\}_{t=1}^T, \{\bm{x}_t\}_{t=1}^T \sim \mathcal{N}\left(\bar{\bm{b}}_{i\cdot}, \bar{\mathbf{V}}_i \right), \\
-& \tilde{\bm{\Sigma}} | \bm{\alpha}, \mathbf{B}(\bm{\alpha}), \bm{\delta}, \{w_t\}_{t=1}^T, \{\bm{y}_t\}_{t=1}^T, \{\bm{x}\}_{t=1}^T \sim \mathcal{IW}\left(\bar{\nu}, \bar{\bm{\Sigma}}\right), \\
-& \delta_i | \alpha_i, \bm{b}(\alpha_i)_{i\cdot}, \{w_t\}_{t=1}^T, \{y_{it}\}_{t=1}^T, \{\bm{x}_t\}_{t=1}^T \sim \mathcal{IG}\left(\frac{\bar{n}_{\delta, i}}{2}, \frac{\bar{s}_{\delta,i}}{2}\right), \\
+& W_t|\boldsymbol{\alpha}, \mathbf{B}(\boldsymbol{\alpha}), \tilde{\mathbf{\Sigma}}, \boldsymbol{\delta}, \boldsymbol{y}_t, \boldsymbol{x}_t \sim \mathcal{GIG}\left(\frac{2-N}{2}, d+2, m_t\right), \\
+& \boldsymbol{b}(\alpha_i)_{i\cdot} | \boldsymbol{\alpha}, \boldsymbol{\Lambda}_i, \{\boldsymbol{b}(\alpha_j)_{j\cdot}\}_{j\neq i}, \tilde{\boldsymbol{\Sigma}}, \boldsymbol{\delta}, \{w_t\}_{t=1}^T, \{y_{it}\}_{t=1}^T, \{\boldsymbol{x}_t\}_{t=1}^T \sim \mathcal{N}\left(\bar{\boldsymbol{b}}_{i\cdot}, \bar{\mathbf{V}}_i \right), \\
+& \tilde{\boldsymbol{\Sigma}} | \boldsymbol{\alpha}, \mathbf{B}(\boldsymbol{\alpha}), \boldsymbol{\delta}, \{w_t\}_{t=1}^T, \{\boldsymbol{y}_t\}_{t=1}^T, \{\boldsymbol{x}\}_{t=1}^T \sim \mathcal{IW}\left(\bar{\nu}, \bar{\boldsymbol{\Sigma}}\right), \\
+& \delta_i | \alpha_i, \boldsymbol{b}(\alpha_i)_{i\cdot}, \{w_t\}_{t=1}^T, \{y_{it}\}_{t=1}^T, \{\boldsymbol{x}_t\}_{t=1}^T \sim \mathcal{IG}\left(\frac{\bar{n}_{\delta, i}}{2}, \frac{\bar{s}_{\delta,i}}{2}\right), \\
 & \lambda_{ij} | b(\alpha_i)_{ij} \sim \mathcal{IG}\left(\frac{\bar{n}_{\lambda,ij}}{2}, \frac{\bar{s}_{\lambda,ij}}{2} \right), \\
 & i = 1,2,\cdots, N, j = 1,2, \cdots, NP+1, t = 1,2,\cdots,T. \notag
 \end{align}
 $$
 
-where $d=\tilde{\bm{\xi}}^{\top}\tilde{\bm{\Sigma}}^{-1}\tilde{\bm{\xi}}$, $m_t = \bm{e}(\bm{\alpha})_t^{\top} \left(\bm{\mathbf{D}}\tilde{\bm{\Sigma}} \mathbf{D} \right)^{-1} \bm{e}(\bm{\alpha})_t$, $\bm{e}(\bm{\alpha})_t = \bm{y}_t - \mathbf{B}(\bm{\alpha}) \bm{x}_t$, and
+where $d=\tilde{\boldsymbol{\xi}}^{\top}\tilde{\boldsymbol{\Sigma}}^{-1}\tilde{\boldsymbol{\xi}}$, $m_t = \boldsymbol{e}(\boldsymbol{\alpha})_t^{\top} \left(\boldsymbol{\mathbf{D}}\tilde{\boldsymbol{\Sigma}} \mathbf{D} \right)^{-1} \boldsymbol{e}(\boldsymbol{\alpha})_t$, $\boldsymbol{e}(\boldsymbol{\alpha})_t = \boldsymbol{y}_t - \mathbf{B}(\boldsymbol{\alpha}) \boldsymbol{x}_t$, and
 
 $$
 \begin{align}
-& \bar{\mathbf{V}}_i = \left(\sum_{t=1}^T \frac{\omega_{ii}}{w_t} \bm{x}_t \bm{x}_t^{\top} + \underline{\mathbf{V}}_i^{-1} \mathbf{\Lambda}_i^{-1}\right)^{-1}, \\
-& \bar{\bm{b}}_i = \bar{\mathbf{V}}_i \left\{\sum_{t=1}^T \frac{1}{w_t}\left[\omega_{ii} \left(y_{it} - \delta_i\tilde{\xi}_i w_t\right) + \sum_{j\neq i, j =1}^N \omega_{ij} \left(e(\alpha_j)_{jt} - \delta_j \tilde{\xi}_j w_t\right) \right] \right\}, \\
-& \bar{\bm{\Sigma}} = \sum_{t=1}^T \frac{1}{w_t} \mathbf{D}^{-1} \left( \bm{e}(\bm{\alpha})_t - \mathbf{D} \tilde{\bm{\xi}} w_t \right) \left( \bm{e}(\bm{\alpha})_t - \mathbf{D} \tilde{\bm{\xi}} w_t \right)^{\top} \mathbf{D}^{-1} + \underline{\mathbf{\Sigma}}, \bar{\nu} = \underline{\nu} + T - P, \\
-& \bar{n}_{\delta,i} = \underline{n}_{\delta,i} + 3T, \bar{s}_{\delta,i}=\underline{s}_{\delta,i} + 2 \sum_{t=1}^T v_{it} + \sum_{t=1}^T \frac{\left( y_{it} - \bm{x}_t^{\top} \bm{b}(\alpha_i)_{i\cdot} -\tilde{\xi} v_{it} \right)^2}{v_{it} \tilde{\sigma}_i^2},
+& \bar{\mathbf{V}}_i = \left(\sum_{t=1}^T \frac{\omega_{ii}}{w_t} \boldsymbol{x}_t \boldsymbol{x}_t^{\top} + \underline{\mathbf{V}}_i^{-1} \mathbf{\Lambda}_i^{-1}\right)^{-1}, \\
+& \bar{\boldsymbol{b}}_i = \bar{\mathbf{V}}_i \left\{\sum_{t=1}^T \frac{1}{w_t}\left[\omega_{ii} \left(y_{it} - \delta_i\tilde{\xi}_i w_t\right) + \sum_{j\neq i, j =1}^N \omega_{ij} \left(e(\alpha_j)_{jt} - \delta_j \tilde{\xi}_j w_t\right) \right] \right\}, \\
+& \bar{\boldsymbol{\Sigma}} = \sum_{t=1}^T \frac{1}{w_t} \mathbf{D}^{-1} \left( \boldsymbol{e}(\boldsymbol{\alpha})_t - \mathbf{D} \tilde{\boldsymbol{\xi}} w_t \right) \left( \boldsymbol{e}(\boldsymbol{\alpha})_t - \mathbf{D} \tilde{\boldsymbol{\xi}} w_t \right)^{\top} \mathbf{D}^{-1} + \underline{\mathbf{\Sigma}}, \bar{\nu} = \underline{\nu} + T - P, \\
+& \bar{n}_{\delta,i} = \underline{n}_{\delta,i} + 3T, \bar{s}_{\delta,i}=\underline{s}_{\delta,i} + 2 \sum_{t=1}^T v_{it} + \sum_{t=1}^T \frac{\left( y_{it} - \boldsymbol{x}_t^{\top} \boldsymbol{b}(\alpha_i)_{i\cdot} -\tilde{\xi} v_{it} \right)^2}{v_{it} \tilde{\sigma}_i^2},
 \end{align}
 $$
 
