@@ -91,7 +91,6 @@ RcppDf calQIRFwithA(
             }
             /* #endregion */
         }
-
         for (int i = 0; i < n_impulse; ++i)
         {
             EigenVec shock_orthogonal_i = EigenVec::Zero(n_end);
@@ -143,7 +142,7 @@ List calQIRFOnce(
     List res; // output List
 
     /* #region Fetch dataframe of endogenous and exogenous variables */
-    RcppDf data_end = modelSpecif["data_end"];
+    RcppDf data_end(modelSpecif["data_end"]);
     RcppDf data_exo;
     if (modelSpecif.containsElementNamed("data_exo") && modelSpecif["data_exo"] != R_NilValue)
     {

@@ -40,7 +40,7 @@ List forecastQuant(
     /* #endregion */
 
     /* #region Fetch dataframe of endogenous and exogenous variables, forecast of exogenous variables */
-    RcppDf data_end = modelSpecif["data_end"];
+    RcppDf data_end(modelSpecif["data_end"]);
     RcppNumMat data_end_nm = Rcpp::internal::convert_using_rfunction(data_end, "as.matrix");
     EigenMat data_end_eigen = Rcpp::as<EigenMat>(data_end_nm);
     RcppDf data_exo;
@@ -55,7 +55,7 @@ List forecastQuant(
 
         if (modelSpecif.containsElementNamed("data_exo_forecast") && modelSpecif["data_exo_forecast"] != R_NilValue)
         {
-            RcppDf data_exo_forecast = modelSpecif["data_exo_forecast"];
+            RcppDf data_exo_forecast(modelSpecif["data_exo_forecast"]);
             if (data_exo_forecast.rows() != horizon - 1)
             {
                 stop("The number of rows in data_exo_forecast must be the same as forecast horizon - 1.");

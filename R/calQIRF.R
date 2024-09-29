@@ -220,7 +220,7 @@
 #' The results of bootstrap confidence interval may be sensitive to the penalty,
 #' strongly biased and thus not very meaningful.
 #' }
-#' @examples man/examples/calQIRF.R
+#' @example man/examples/calQIRF.R
 #' @references
 #' \insertAllCited{}
 #' @export

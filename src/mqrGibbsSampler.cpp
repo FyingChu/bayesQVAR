@@ -2,8 +2,9 @@
 #include "qrGibbsSampler.h"
 #include <Rcpp.h>
 #include <RcppEigen.h>
-#include <Eigen/Cholesky>    // Cholesky decomposition of posterior variance matrix
-#include <math.h>            // pow
+#include <Eigen/Cholesky> // Cholesky decomposition of posterior variance matrix
+#include <math.h>         // pow
+#include <cmath>
 #include <iostream>          // debugging and printing
 #include <chrono>            // timing
 #include "bayesQVAR_types.h" // defining types of Eigen Matrix and Vector, Rcpp NumericMatrix and NumericVector

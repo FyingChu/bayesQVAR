@@ -3,7 +3,7 @@
 #include <Rcpp.h>
 #include <RcppEigen.h>
 #include <Eigen/Cholesky>    // Cholesky decomposition of posterior variance matrix
-#include <math.h>            // pow
+#include <cmath>             // pow, round
 #include <iostream>          // debugging and printing
 #include <chrono>            // timing
 #include <variant>           // variant type
@@ -369,7 +369,7 @@ List estBQVAR(
                         }
                         auto currentStep = std::chrono::system_clock::now();
                         std::chrono::duration<double> elapsed_seconds = currentStep - start;
-                        Rcpp::Rcout << i + 1 << " equations have been estimated: " << std::round(elapsed_seconds.count() * 100) / 100 << "s" << std::endl;
+                        Rcpp::Rcout << i + 1 << " equations have been estimated: " << std::round(elapsed_seconds.count() * 100.0) / 100.0 << "s" << std::endl;
                     }
                 }
             }
@@ -477,7 +477,7 @@ List estBQVAR(
 }
 
 //@brief: Estimate multiple QVAR models at different tail probability vectors and save autoregressive matrices
-//@param modelSpecif a `Rcpp::List` that contains QVAR model secification information, including `data_end`, `data_exo`, `lag`, `pior`, `samplerSetting`, `method`. `data_end`: a `T` * `n_end` `Rcpp::DataFrame` of endogenous variables. `data_exo`: a `T` * `n_exo` `Rcpp::DataFrame` of exogenous variables. `lag`: a `Rcpp::IntegerVector` of length 1 or 2 that specifies the lag order of endogenous and exogenous variables. `prior`: a `Rcpp::List` that contains prior information. `samplerSetting`: a `Rcpp::List` that contains sampling setting. `method`: a `std::string` that specifies the estimation method. "bayes-al" for Bayesian estimation based on AL distribution, "bayes-mal" for Bayesian estimation based on MAL distribution..
+//@param modelSpecif a `Rcpp::List` that contains QVAR model specification information, including `data_end`, `data_exo`, `lag`, `pior`, `samplerSetting`, `method`. `data_end`: a `T` * `n_end` `Rcpp::DataFrame` of endogenous variables. `data_exo`: a `T` * `n_exo` `Rcpp::DataFrame` of exogenous variables. `lag`: a `Rcpp::IntegerVector` of length 1 or 2 that specifies the lag order of endogenous and exogenous variables. `prior`: a `Rcpp::List` that contains prior information. `samplerSetting`: a `Rcpp::List` that contains sampling setting. `method`: a `std::string` that specifies the estimation method. "bayes-al" for Bayesian estimation based on AL distribution, "bayes-mal" for Bayesian estimation based on MAL distribution..
 //@param alphaMat: `Rcpp::NumericMatrix` that contains tail probability vectors. Each column contains the tail probability vector for each QVAR model.
 //@return a `Rcpp::List` that contains autoregressive coefficients matrices and MCMC chains of QVAR mdoels.
 // [[Rcpp::export(.estMultiBQVAR)]]
@@ -488,7 +488,7 @@ List estMultiBQVAR(
     List res; // output List
 
     /* #region Fetch dataframe of endogenous and exogenous variables */
-    RcppDf data_end = modelSpecif["data_end"];
+    RcppDf data_end(modelSpecif["data_end"]);
     RcppDf data_exo;
     if (modelSpecif.containsElementNamed("data_exo") && modelSpecif["data_exo"] != R_NilValue)
     {

@@ -263,7 +263,9 @@ S7::method(gplot, BQVAR_QIRF) <- function(
         axis.title = font_lab
       )
 
-    require(patchwork)
+    if (!require(patchwork)) {
+      stop("The patchwork package is required but not installed.")
+    }
     p_merge <- p + p_diff +
       plot_layout(
         ncol = 1,
