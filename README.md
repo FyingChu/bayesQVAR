@@ -5,7 +5,6 @@
 Install the dependencies, then download the source package file or binary package file from Release and install it locally. Source package file needs compilation, but binary package does not. If the technique detail of algorithm is not your interests, binary package is more recommended for users.
 
 ```R
-
 # install dependencies
 install.packages(
   c("Rcpp", "parallel", "GIGrvg", "LaplacesDemon", "Rdpack", "S7", "patchwork", "ggplot2", "stringr")
@@ -26,10 +25,10 @@ install.packages(
 
 ## Model Specification of QVAR
 
-The **$P$**-order QVAR at probability vector$\boldsymbol{\alpha}=[\alpha_1\ \alpha_2\ \cdots\ \alpha_N]^{\top} \in (0, 1)^{N}$without exogenous variable, denoted as $\mathrm{QVAR}(P)$takes the form of
+The **$P$**-order QVAR at probability vector $\boldsymbol{\alpha}=[\alpha_1\ \alpha_2\ \cdots\ \alpha_N]^{\top} \in (0, 1)^{N}$ without exogenous variable, denoted as $\mathrm{QVAR}(P)$ takes the form of
 
-$$
-\begin{gather}
+```math
+\begin{gathered}
 \boldsymbol{Y}_t = \boldsymbol{q}(\boldsymbol{\alpha}) + \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p Y_{t-p} + \boldsymbol{u}(\boldsymbol{\alpha})_t, Q_{\boldsymbol{\alpha}}(\boldsymbol{u}(\boldsymbol{\alpha})_t|I_t) = \boldsymbol{0}, \\
 \boldsymbol{Y}_t = \begin{bmatrix}
 Y_{1t} \\
@@ -49,10 +48,10 @@ a(\alpha_2)_{21,p} & a(\alpha_2)_{22,p} & \cdots & a(\alpha_2)_{2N,p} \\
 \vdots & \vdots & \ddots & \vdots \\
 a(\alpha_N)_{N1,p} & a(\alpha_N)_{N2,p} & \cdots & a(\alpha_N)_{NN,p}
 \end{bmatrix},
-\end{gather}
-$$
+\end{gathered}
+```
 
-where $Q_{\boldsymbol{\alpha}}(\cdot)$ is **_quantile operator_**, which means that it calculates element-wise quantile of the random vector in the parenthesis according to the probability vector $\boldsymbol{\alpha}$, that is $Q_{\boldsymbol{\alpha}}(\boldsymbol{X}) = \begin{bmatrix}Q_{\alpha_1}(X_1) & Q_{\alpha_2}(X_2) & \cdots & Q_{\alpha_N}(X_N)\end{bmatrix}^{\top}$. $Q_{\boldsymbol{\alpha}}\left(\boldsymbol{u}(\boldsymbol{\alpha})_t|I_t\right)=\boldsymbol{0}$ implies that the conditional $\boldsymbol{\alpha}$-quantile of $\boldsymbol{Y}_t $ is $Q_{\boldsymbol{\alpha}}\left(\boldsymbol{Y}_t|I_t\right) = \boldsymbol{q}(\boldsymbol{\alpha}) + \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p\boldsymbol{Y}_{t-p}$. In other words, $\boldsymbol{u}(\boldsymbol{\alpha})_t$ is the forecast error that drive the observation of $\boldsymbol{y}_t$ to deviate from conditional $\boldsymbol{\alpha}$-quantile of $\boldsymbol{Y}_t$. In this sense, **$\boldsymbol{u}(\boldsymbol{\alpha})_t$ **can be named as **_quantile shock_**.
+where $Q_{\boldsymbol{\alpha}}(\cdot)$ is **_quantile operator_**, which means that it calculates element-wise quantile of the random vector in the parenthesis according to the probability vector $\boldsymbol{\alpha}$, that is $Q_{\boldsymbol{\alpha}}(\boldsymbol{X}) = \begin{bmatrix}Q_{\alpha_1}(X_1) & Q_{\alpha_2}(X_2) & \cdots & Q_{\alpha_N}(X_N)\end{bmatrix}^{\top}$ . $Q_{\boldsymbol{\alpha}}\left(\boldsymbol{u}(\boldsymbol{\alpha})_t|I_t\right)=\boldsymbol{0}$ implies that the conditional $\boldsymbol{\alpha}$-quantile of $\boldsymbol{Y}_t $ is $Q_{\boldsymbol{\alpha}}\left(\boldsymbol{Y}_t|I_t\right) = \boldsymbol{q}(\boldsymbol{\alpha}) + \sum_{p=1}^P \mathbf{A}(\boldsymbol{\alpha})_p\boldsymbol{Y}_{t-p}$. In other words, $\boldsymbol{u}(\boldsymbol{\alpha})_t$ is the forecast error that drive the observation of $\boldsymbol{y}_t$ to deviate from conditional $\boldsymbol{\alpha}$-quantile of $\boldsymbol{Y}_t$. In this sense, **$\boldsymbol{u}(\boldsymbol{\alpha})_t$ **can be named as **_quantile shock_**.
 
 To consider the effect of common factors on $\boldsymbol{Y}_t$, we can extend the model by introducing lagged exogenous variables.
 
