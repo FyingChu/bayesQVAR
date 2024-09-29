@@ -42,7 +42,7 @@ u(\alpha_2)_{2t} \\
 \vdots \\
 u(\alpha_N)_{Nt}
 \end{bmatrix},
-\mathbf{A}(\boldsymbol{\alpha})_p=\begin{bmatrix}
+\boldsymbol{A}(\boldsymbol{\alpha})_p=\begin{bmatrix}
 a(\alpha_1)_{11,p} & a(\alpha_1)_{12,p} & \cdots & a(\alpha_1)_{1N,p} \\
 a(\alpha_2)_{21,p} & a(\alpha_2)_{22,p} & \cdots & a(\alpha_2)_{2N,p} \\
 \vdots & \vdots & \ddots & \vdots \\
