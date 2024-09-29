@@ -1,13 +1,3 @@
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
 # Bayesian Qauntile VAR
 
 ## Installation
@@ -36,7 +26,7 @@ install.packages(
 
 ## Model Specification of QVAR
 
-The $P$-order QVAR at probability vector$\boldsymbol{\alpha}=[\alpha_1\ \alpha_2\ \cdots\ \alpha_N]^{\top} \in (0, 1)^{N}$without exogenous variable, denoted as $\mathrm{QVAR}(P)$takes the form of
+The $P$-order QVAR at probability vector$\alpha=[\alpha_1\ \alpha_2\ \cdots\ \alpha_N]^{\top} \in (0, 1)^{N}$without exogenous variable, denoted as $QVAR(P)$takes the form of
 
 $$
 \begin{gather}
