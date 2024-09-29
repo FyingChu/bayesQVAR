@@ -25,7 +25,7 @@ install.packages(
 # Technique Details
 
 ## Model Specification of QVAR
-
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 The **$P$**-order QVAR at probability vector$\boldsymbol{\alpha}=[\alpha_1\ \alpha_2\ \cdots\ \alpha_N]^{\top} \in (0, 1)^{N}$without exogenous variable, denoted as $\mathrm{QVAR}(P)$takes the form of
 
 $$
