@@ -1,6 +1,5 @@
 useDynLib(bayesQVAR, .registration=TRUE)
 importFrom(Rcpp, evalCpp)
-importFrom(stats, qnorm, qt, quantile, rnorm, rt, runif, sd)
 export("simuData")
 export("estBQVAR")
 export("forecastQuant")

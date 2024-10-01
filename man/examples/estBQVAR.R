@@ -59,14 +59,14 @@ BQVAR_al <- bayesQVAR::estBQVAR(
     printFreq = 1,
     mute = FALSE
 )
-# Extract estimate matrices, and calculate quantiles of interest
+# Extract estimate matrices, and calculate quantile of interest
 Y <- BQVAR_mal@designMat[["Y"]]
 X <- BQVAR_mal@designMat[["X"]]
 Ap_est_mal <- BQVAR_mal@estimates[["A"]]
 Ap_est_al <- BQVAR_al@estimates[["A"]]
 quant_est_mal <- Ap_est_mal %*% X
 quant_est_al <- Ap_est_al %*% X
-# plot the estimated quantiles
+# plot the estimated quantile
 for(i in 1:n_end){
     plot(Y[i, ], type = "l")
     lines(quant_alpha[-1, i], col = "blue")
