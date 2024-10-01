@@ -3,7 +3,6 @@
 #include <Rcpp.h>
 #include <RcppEigen.h>
 #include <Eigen/Cholesky> // Cholesky decomposition of posterior variance matrix
-#include <math.h>         // pow
 #include <cmath>
 #include <iostream>          // debugging and printing
 #include <chrono>            // timing
@@ -232,7 +231,7 @@ List mqrGibbsSampler_mal(
                     const double b_ij = B_h(i, j);
                     const double prior_Sigmab_ij = prior_SigmaB_i(j, j);
                     const double post_nl = 0.5 * (prior_nl(i, j) + 1);
-                    const double post_sl = 0.5 * (pow(b_ij, 2) / prior_Sigmab_ij + prior_sl(i, j));
+                    const double post_sl = 0.5 * (std::pow(b_ij, 2) / prior_Sigmab_ij + prior_sl(i, j));
                     Lambda_h(i, j) = rInvGamma(post_nl, post_sl);
                 }
             }
@@ -254,7 +253,7 @@ List mqrGibbsSampler_mal(
                     }
                     auto currentStep = std::chrono::system_clock::now();
                     std::chrono::duration<double> elapsed_seconds = currentStep - start;
-                    Rcpp::Rcout << "Iterations " << h + 1 << ": " << std::round(elapsed_seconds.count() * 100) / 100 << "s" << std::endl;
+                    Rcpp::Rcout << "Iterations " << h + 1 << ": " << std::round(static_cast<float>(elapsed_seconds.count() * 100)) / 100 << "s" << std::endl;
                 }
             }
         }

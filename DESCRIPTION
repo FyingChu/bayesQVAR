@@ -10,7 +10,7 @@ Authors@R: person(given = "Fengyi",
   email = "zhufengyi810@live.com")
 Description: Bayesian estimation, quantile forecast and impulse response analysis of Quantile Vector Autoregression(QVAR) model. 
 License: GPL (>= 2)
-Imports: Rcpp (>= 1.0.11), parallel, GIGrvg, LaplacesDemon, Rdpack, S7, patchwork, ggplot2, stringr
+Imports: Rcpp (>= 1.0.11), parallel, GIGrvg, LaplacesDemon, S7, ggplot2, patchwork, stringr
 LinkingTo: Rcpp, RcppEigen
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2

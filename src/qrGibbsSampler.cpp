@@ -161,7 +161,7 @@ List qrGibbsSampler_al(
                     }
                     auto currentStep = std::chrono::system_clock::now();
                     std::chrono::duration<double> elapsed_seconds = currentStep - start;
-                    Rcpp::Rcout << "Iterations " << h + 1 << ": " << std::round(elapsed_seconds.count() * 100) / 100 << "s" << std::endl;
+                    Rcpp::Rcout << "Iterations " << h + 1 << ": " << std::round(static_cast<float>(elapsed_seconds.count() * 100)) / 100.0 << "s" << std::endl;
                 }
             }
         }
