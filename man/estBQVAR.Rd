@@ -44,10 +44,9 @@ to q-th order of lagged term of \eqn{\bm{X}}.}
 \item \code{nu} Integer that indicate parameter \eqn{\underline{\nu}} of Inverse Wishart distribution, which will only be used when \code{method = "bayes-mal"}. The default is \eqn{n_Y + 1}.
 \item \code{n_delta} \eqn{n_Y\times 1} vector of shape parameter \eqn{\underline{n}_{\delta,i}} of Inverse Gamma distribution for \eqn{\delta_i}. The default is \eqn{\mathbf{1}_{n_Y}}.
 \item \code{s_delta} \eqn{n_Y \times 1} vector of scale parameter \eqn{\underline{s}_{\delta,i}} of Inverse Gamma distribution for \eqn{\delta_i}. The default is \eqn{\mathbf{1}_{n_Y}}.
-\item \code{n_lambda} \eqn{n_Y \times (n_Y p + n_X q + 1)} matrix of shape parameter \eqn{\underline{n}_{\lambda,ij}} of Inverse Gamma distribution for \eqn{\lambda_{ij}}, The larger, the stronger penalty on \eqn{a(\bm{\alpha})_{ij}} is.
-\item \code{s_lambda} \eqn{n_Y \times (n_Y p + n_X q + 1)} matrix of scale parameter \eqn{\underline{s}_{\lambda,ij}} of Inverse Gamma distribution for \eqn{\lambda_{ij}}. The smaller, the stronger penalty on \eqn{a(\bm{\alpha})_{ij}} is.
-}
-If \code{n_lambda} and \code{s_lambda} are not provided, then no penalty imposed on \eqn{\mathbf{A}(\bm{\alpha})_+}.}
+\item \code{n_lambda} \eqn{n_Y \times (n_Y p + n_X q + 1)} matrix of shape parameter \eqn{\underline{n}_{\lambda,ij}} of Inverse Gamma distribution for \eqn{\lambda_{ij}}. The larger, the stronger penalty on \eqn{a(\bm{\alpha})_{ij}} is. If not provided, then no penalty imposed on \eqn{\mathbf{A}(\bm{\alpha})_+}.
+\item \code{s_lambda} \eqn{n_Y \times (n_Y p + n_X q + 1)} matrix of scale parameter \eqn{\underline{s}_{\lambda,ij}} of Inverse Gamma distribution for \eqn{\lambda_{ij}}. The smaller, the stronger penalty on \eqn{a(\bm{\alpha})_{ij}} is. If not provided, then no penalty imposed on \eqn{\mathbf{A}(\bm{\alpha})_+}.
+}}
 
 \item{samplerSetting}{(optional) List of sampler setting parameters that passing the initial values of Gibbs algorithm and the number of iterations. A complete sampler including \code{init_A}, \code{init_Sigma}, \code{init_delta}, \code{n_sample}, \code{n_burn}, \code{n_thin}. If not privided, the default setting is used.
 \itemize{
